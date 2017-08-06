@@ -22,13 +22,14 @@
       <ul>
         <li><a href="index.html"><span class="fa fa-home"></span>Inicio</a></li>
         <li><a href="#"><span class="fa fa-cutlery"></span>Menú del Día</a></li>
-        <li><a href="#"><span class="fa fa-heart"></span>Restaurantes</a></li>
+        <li><a href="restaurantes.html"><span class="fa fa-heart"></span>Restaurantes</a></li>
         <li><a href="#"><span class="fa fa-user"></span>Contacto</a></li>
       </ul>
       <img src="img/logo.png" alt="">
     </nav>
   </header>
   <div id="main">
+
   	<h1>MENU DEL DIA</h1>
   	<div class="filtros">
   		<div class="input">
@@ -48,11 +49,46 @@
   			</div>
   			<div class="price">
   				<h2>{{persona.gender}}</h2>
-  				<button>ORDENAR</button>
+  				<button @click="Ordernar(persona)">ORDENAR</button>
   			</div>
 
   		</div>
   	</div>
+
+<template v-if="modal">
+   <div class="modal">
+      <form action="">
+        <div class="title">
+          <h2>ORDENAR {{ModalTitle}}</h2>
+        </div>
+        <div class="image">
+          <picture>
+            <img v-bind:src="ModalImg" alt="">
+          </picture>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, inventore doloremque libero culpa consectetur.</p>
+        </div>
+        <div class="price">
+          <h2>{{ModalPrice}}</h2>
+          <div class="cantidad">
+            <span class="menos" @click="disminuir">-</span>
+            <input type="number" v-model="cantidad">
+            <span class="mas" @click="aumentar">+</span>
+          </div>
+        </div>
+        <div class="textarea">
+          <label >Detalle</label>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="inputs">
+          <input type="text" class="cancelar" @click="cerrarModal" value="CANCELAR">
+          <input type="text" class="ordenar" value="ORDENAR">
+        </div> 
+      </form>
+    </div>
+</template>
+
+   
+
   </div>
     <footer>
     <span class="fa fa-facebook"></span>
@@ -66,5 +102,9 @@
 <script src="js/vue.js"></script>
 <script src="js/axios.js"></script>
 <script src="js/app.js"></script>
+
+
+
+
 </body>
 </html>
