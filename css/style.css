@@ -128,7 +128,40 @@ header nav ul li a span{
 .main .restaurant ul li a span{
   padding: 0 1em;
 }
+.main .contacto{
+  width: 100%;
+  padding: 1em;
+}
+.main .contacto h2{
+  width: 100%;
+  text-align: center;
+  color:#3F2919;
+  font-size: 2em;
+}
+.main .contacto form{
+  width: 100%;
+  padding: 1em 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.main .contacto form > *{
+  display: flex;
+  flex-direction: column;
+  margin: .5em;
+}
+.main .contacto form .input input,
+.main .contacto form .input textarea{
+  border: 1px solid #000;
+}
+.main .contacto form .input input{
+  height: 2em;
+}
 
+.main .contacto form .input button{
+  background: #F79900;
+  height: 3em;
+  font-size: 1em;
+}
 footer{
   width: 90%;
   margin: 0 auto 1em auto;
@@ -183,7 +216,7 @@ footer{
   }
   header nav{
     width: 80%;
-    height: calc(100% - 83px);
+    height: calc(100% - 93px);
     position: fixed;
     right: 100%;
     margin: 0;
