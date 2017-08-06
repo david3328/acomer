@@ -1,6 +1,19 @@
 const app = new Vue({
 	el:'#main',
 	data:{
+		usuario:false,
+		stats:false,
+		admin:true,
+		mostrar:false,
+		user:{
+			name:'Alfred Sosa Locumi',
+			type:'Usuario Frecuente',
+			rate:'Doña Rosa',
+			ubicacion: 'Chiclayo',
+			img:'url',
+			consumo: 134.50,
+			points: 45
+		},
 		platos:[
 			{
 				id:0,
@@ -72,38 +85,39 @@ const app = new Vue({
 				Descripcion:'Mixto',
 				img: 'https://www.verycocinar.com/recursos/recetas/443/parihuela.video.jpg?1360782498'
 			}
-		],
-		busqueda:'',
-		modal:false,
-		ModalTitle:'',
-		ModalImg:'',
-		ModalPrice:'',
-		cantidad:1,
-		
-	},
-	mounted(){
-		
+		]
 	},
 	methods:{
-	
-		
-		aumentar(){
-			this.cantidad+=1;
-		},
-		disminuir(){
-			this.cantidad-=1;
-		},
-		buscarPlatos(){
-			return this.platos.filter((plato)=>plato.name.includes(this.busqueda));
-		},
 		cerrarModal(){
-			this.modal=!this.modal;
+			this.mostrar=false;
 		},
-		Ordernar(name){
-			this.ModalTitle = name.name;
-			this.ModalImg = name.img;
-			this.ModalPrice = name.precio;
-			this.modal=true;
+		Editar(){
+			this.mostrar=true;
+		},
+		Usuario(){
+			console.log('Hola');
+			this.usuario=true;
+			this.stats=false;
+			this.admin=false;
+			$('nav').animate({
+				left:'-100%'
+			});
+		},
+		Administracion(){
+			this.usuario=false;
+			this.stats=false;
+			this.admin=true;
+			$('nav').animate({
+				left:'-100%'
+			});
+		},
+		Estadistica(){
+			this.usuario=false;
+			this.stats=true;
+			this.admin=false;
+			$('nav').animate({
+				left:'-100%'
+			});
 		}
 	}
 });

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+	  <link rel="stylesheet" href="css/style.css">
+	  <link rel="stylesheet" href="css/dashboard.css">
+	  <link rel="stylesheet" href="css/font-awesome.css">
+	<title>A Comer!</title>
+</head>
+<body>
+
+
+<div id="main">
+<header>
+    <div class="menu_bar">
+      <a href="#" class="bt-menu">
+	      <span class="title">A COMER</span>
+	      <span class="fa fa-bars"></span>   
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><span class="fa fa-home"></span>Inicio</a></li>
+        <li ><a href="#" @click="Usuario"><span class="fa fa-user"></span>Usuario</a></li>
+        <li ><a href="#" @click="Administracion"><span class="fa fa-briefcase"></span>Administración</a></li>
+        <li ><a href="#" @click="Estadistica"><span class="fa fa-area-chart"></span>Estadisticas</a></li>
+        <li><a href="#"><span class="fa fa-times"></span>Salir</a></li>
+      </ul>
+      <img src="img/logo.png" alt="">
+    </nav>
+  </header>
+
+	<template v-if="usuario">
+		<div class="widget">
+			<div class="title"><span class="fa fa-user"></span> USUARIO</div>
+			<div class="chart">
+				<div class="img">
+					<img src="img/user.png" alt="">
+				</div>
+				<h4><span>Nombre:</span> {{user.name}}</h4>
+				<h4><span>Tipo:</span> {{user.type}}</h4>
+				<h4><span>Restauran Favorito: </span>{{user.rate}}</h4>
+				<h4><span>Ubicación: </span>{{user.ubicacion}}</h4>
+				<h4><span>Total Consumo:</span> {{user.consumo}}</h4>
+				<h4 class="puntos"><span>Puntos:</span> {{user.points}}</h4>
+				<div class="inputs">
+					<button @click="Editar">EDITAR</button>
+				</div>
+			</div>
+
+		</div>
+	</template>
+	<template v-if="admin">
+		<div class="widget">
+			<div class="title"><span class="fa fa-briefcase"></span> ADMINISTRACION</div>
+			<div class="chart">
+				<div class="table">
+					<div class="cabecera">
+						<h3>Plato</h3>
+						<h3>Opciones</h3>
+					</div>
+					<div class="dato" v-for="plato in platos">
+						<h3>{{plato.name}}</h3>
+						<h3>
+							<span class="fa fa-pencil"></span>
+							<span class="fa fa-times"></span>
+						</h3>
+					</div>
+					<div class="add">
+						<button>AGREGAR</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+	<template v-if="stats">
+		<div class="widget">
+			<div class="title"><span class="fa fa-area-chart"></span> ANALITICS</div>
+			<div class="chart">
+				<div class="select">
+				  <select>
+				    <option value="">Datos Mensuales</option>
+				    <option value="opcion-1">Datos Diarios</option>
+				    <option value="opcion-2">Datos Anuales</option>
+				    <option value="opcion-n">Más Vendidos</option>
+				  </select>
+				</div>
+			</div>
+		</div>
+	</template>	
+
+	<template v-if="mostrar">
+		<div class="modal">
+			<div class="container">
+				<div class="title">
+					<h2>EDITAR USUARIO</h2>
+				</div>
+				<div class="inputs">
+					<input type="text" v-bind:value="user.name">
+					<input type="text" v-bind:value="user.type" readonly="readonly">
+					<input type="text" v-bind:value="user.rate" readonly="readonly">
+					<input type="text" v-bind:value="user.ubicacion">
+					<input type="text" v-bind:value="user.consumo" readonly="readonly">
+					<input type="text" v-bind:value="user.points" readonly="readonly">
+				</div>
+				<div class="options">			
+		          <input type="text" class="cancelar" @click="cerrarModal" value="CANCELAR">
+		          <input type="text" class="ordenar" value="GUARDAR">
+				</div>
+			</div>
+		</div>
+	</template>
+</div>
+	<footer>
+    <span class="fa fa-facebook"></span>
+    <span class="fa fa-twitter"></span>
+    <span class="fa fa-youtube"></span>
+    <span class="fa fa-instagram"></span>
+ </footer>
+
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/dash.js"></script>
+ </body>
+ </html>
