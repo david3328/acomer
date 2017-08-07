@@ -5,6 +5,15 @@ const app = new Vue({
 		stats:false,
 		admin:true,
 		mostrar:false,
+		add:false,
+		editar:false,
+		mostrardelete:false,
+		modalplato:{},
+		nombreplato:'',
+		descplato:'',
+		precioplato:'',
+		imgplato:'',
+		auxid:'',
 		user:{
 			name:'Alfred Sosa Locumi',
 			type:'Usuario Frecuente',
@@ -90,9 +99,69 @@ const app = new Vue({
 	methods:{
 		cerrarModal(){
 			this.mostrar=false;
+			this.add=false;
+			this.editar=false;
+			this.nombreplato='';
+			this.descplato='';
+			this.precioplato='';
+			this.imgplato='';
+			this.auxid='';
+		},
+		Agregar(){
+			this.add=true;
+		},
+		AgregarPlato(){
+			let obj = new Object();
+			obj.name = this.nombreplato;
+			obj.Descripcion=this.descplato;
+			obj.precio=this.precioplato;
+			obj.img=this.imgplato;
+			let index = this.platos.lenght -1 ;
+			obj.id=index;
+			this.platos.push(obj);
+			this.nombreplato='';
+			this.descplato='';
+			this.precioplato='';
+			this.imgplato='';
+			this.add=false;
 		},
 		Editar(){
 			this.mostrar=true;
+		},
+		ConfirmarEditar(){
+			this.platos[this.auxid].name=this.nombreplato;
+			this.platos[this.auxid].Descripcion=this.descplato;
+			this.platos[this.auxid].precio=this.precioplato;
+			this.platos[this.auxid].img=this.imgplato;
+
+			this.editar=false;
+			this.nombreplato='';
+			this.descplato='';
+			this.precioplato='';
+			this.imgplato='';
+			this.auxid='';
+		},
+		EditarPlato(plato){
+			this.nombreplato=plato.name;
+			this.precioplato=plato.precio;
+			this.descplato=plato.Descripcion;
+			this.imgplato=plato.img;
+			this.auxid=plato.id;
+			this.editar=true;
+		},
+		AlertPlato(plato){
+			this.modalplato=plato;
+			this.mostrardelete=true;
+		},
+		cerrarAlert(){
+			this.mostrardelete=false;
+			this.modalplato={};
+		},
+		EliminarPlato(){
+			let index = this.platos.indexOf(this.modalplato);
+			this.platos.splice(index,1);
+			this.mostrardelete=false;
+			this.modalplato={};
 		},
 		Usuario(){
 			console.log('Hola');

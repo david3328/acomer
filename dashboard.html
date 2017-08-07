@@ -66,12 +66,12 @@
 					<div class="dato" v-for="plato in platos">
 						<h3>{{plato.name}}</h3>
 						<h3>
-							<span class="fa fa-pencil"></span>
-							<span class="fa fa-times"></span>
+							<span class="fa fa-pencil" @click="EditarPlato(plato)"></span>
+							<span class="fa fa-times" @click="AlertPlato(plato)"></span>
 						</h3>
 					</div>
 					<div class="add">
-						<button>AGREGAR</button>
+						<button @click="Agregar">AGREGAR</button>
 					</div>
 				</div>
 			</div>
@@ -80,7 +80,7 @@
 	<template v-if="stats">
 		<div class="widget">
 			<div class="title"><span class="fa fa-area-chart"></span> ANALITICS</div>
-			<div class="chart">
+			<div class="chart stats">
 				<div class="select">
 				  <select>
 				    <option value="">Datos Mensuales</option>
@@ -89,9 +89,66 @@
 				    <option value="opcion-n">Más Vendidos</option>
 				  </select>
 				</div>
+				<div class="stats">
+					<img src="img/stat.png" alt="">
+					<img src="img/stat1.png" alt="">
+					<img src="img/stat3.png" alt="">
+				</div>
 			</div>
 		</div>
 	</template>	
+	<template v-if="editar">
+		<div class="modal">
+			<div class="container">
+				<div class="title">
+					<h2>EDITAR PLATO</h2>
+				</div>
+				<div class="inputs">
+					<input type="text" placeholder="Nombre" v-model="nombreplato">
+					<input type="text" placeholder="Descripción" v-model="descplato">
+					<input type="text" placeholder="Precio" v-model="precioplato"> 
+					<input type="text" placeholder="Url Imagen" v-model="imgplato">
+				</div>
+				<div class="options">			
+		          <input type="button" class="cancelar" @click="cerrarModal" value="CANCELAR">
+		          <input type="button" class="ordenar" @click="ConfirmarEditar" value="GUARDAR">
+				</div>
+			</div>
+		</div>
+	</template>
+	<template v-if="mostrardelete">
+		<div class="modal">
+			<div class="container">
+				<div class="title">
+					<h2>CONFIRMAR ELIMINACION</h2>
+				</div>
+				<p>¿Desea eliminar {{modalplato.name}}?</p>
+				<div class="options">			
+		          <input type="button" class="ordenar" @click="cerrarAlert" value="CANCELAR">
+		          <input type="button" class="cancelar" @click="EliminarPlato" value="ELIMINAR">
+				</div>
+			</div>
+		</div>
+	</template>
+	<template v-if="add">
+		<div class="modal">
+			<div class="container">
+				<div class="title">
+					<h2>NUEVO REGISTRO</h2>
+				</div>
+				<div class="inputs">
+					<input type="text" placeholder="Nombre" v-model="nombreplato">
+					<input type="text" placeholder="Descripción" v-model="descplato">
+					<input type="text" placeholder="Precio" v-model="precioplato"> 
+					<input type="text" placeholder="Url Imagen" v-model="imgplato">
+				</div>
+				<div class="options">			
+		          <input type="button" class="cancelar" @click="cerrarModal" value="CANCELAR">
+		          <input type="button" class="ordenar" @click="AgregarPlato" value="AGREGAR">
+				</div>
+			</div>
+		</div>
+	</template>
 
 	<template v-if="mostrar">
 		<div class="modal">
@@ -108,8 +165,8 @@
 					<input type="text" v-bind:value="user.points" readonly="readonly">
 				</div>
 				<div class="options">			
-		          <input type="text" class="cancelar" @click="cerrarModal" value="CANCELAR">
-		          <input type="text" class="ordenar" value="GUARDAR">
+		          <input type="button" class="cancelar" @click="cerrarModal" value="CANCELAR">
+		          <input type="button" class="ordenar" value="GUARDAR">
 				</div>
 			</div>
 		</div>
