@@ -8,7 +8,7 @@ const app = new Vue({
 				address: 'Juan XXIII',
 				especialidad: 'Arroz con pato',
 				rate: 5,
-				img: 'http://www.ozarlington.com/wp-content/uploads/2017/04/bar-buffet.jpg'
+				img: 'img/rest/rest1.png'
 			},
 			{
 				id:1,
@@ -16,7 +16,7 @@ const app = new Vue({
 				address: 'Jr Junin',
 				especialidad: 'Arroz con pollo',
 				rate: 3.8,
-				img: 'https://www.schick-hotels.com/files/images/content/f-b-restaurant-schick/restaurant-wien-schick.jpg'
+				img: 'img/rest/rest2.png'
 			},
 			{
 				id:2,
@@ -24,7 +24,7 @@ const app = new Vue({
 				address: 'Huamachuco',
 				especialidad: 'Ceviche',
 				rate: 4,
-				img: 'https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAqFAAAAJDZhNWI1ZGYyLWZhZDUtNGZiNC04NWNiLWY0Yzk4NGNhMGE2MA.jpg'
+				img: 'img/rest/rest3.png'
 			},
 			{
 				id:3,
@@ -32,7 +32,7 @@ const app = new Vue({
 				address: 'Elias Aguirre',
 				especialidad: 'Mondonguito Italiano',
 				rate: 2.9,
-				img: 'http://www.losportaleshoteles.com.pe/wp-content/uploads/2014/05/083.jpg'
+				img: 'img/rest/rest4.png'
 			},
 			{
 				id:4,
@@ -40,7 +40,7 @@ const app = new Vue({
 				address: 'Urb.San Martin',
 				especialidad: 'Causa Monsefuana',
 				rate: 4.5,
-				img: 'https://media-cdn.tripadvisor.com/media/photo-s/05/f3/13/f5/la-perla-de-las-flores.jpg'
+				img: 'img/rest/perlas.png'
 			},
 			{
 				id:5,
@@ -48,7 +48,7 @@ const app = new Vue({
 				address: 'Calle Union',
 				especialidad: 'Tacacho con sesina',
 				rate: 4.1,
-				img: 'https://www.atrapalo.pe/common/photo/res/48875/0/ticr_890_370.jpg'
+				img: 'img/rest/aguajal.png'
 			},
 			{
 				id:6,
@@ -56,7 +56,7 @@ const app = new Vue({
 				address: 'Elias Aguirre',
 				especialidad: 'Arroz con Pato',
 				rate: 3.6,
-				img: 'http://cde.elcomercio.pe/66/ima/0/0/3/3/9/339800.jpg'
+				img: 'img/rest/pato.png'
 			},
 			{
 				id:7,
@@ -64,7 +64,7 @@ const app = new Vue({
 				address: 'Av. Jorgue Chavez',
 				especialidad: 'Pollo a la Brasa',
 				rate: 2.8,
-				img: 'http://polleriaexcelencia.com.pe/images/slide-1.jpg'
+				img: 'img/rest/chavo.png'
 			}
 		]
 	},

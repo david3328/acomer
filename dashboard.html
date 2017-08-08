@@ -30,14 +30,14 @@
         <li ><a href="#" @click="Estadistica"><span class="fa fa-area-chart"></span>Estadisticas</a></li>
         <li><a href="#"><span class="fa fa-times"></span>Salir</a></li>
       </ul>
-      <img src="img/logo.png" alt="">
+      <span class="title">A COMER</span>
     </nav>
   </header>
 
 	<template v-if="usuario">
 		<div class="widget">
 			<div class="title"><span class="fa fa-user"></span> USUARIO</div>
-			<div class="chart">
+			<div class="chart usuario">
 				<div class="img">
 					<img src="img/user.png" alt="">
 				</div>
@@ -172,12 +172,13 @@
 		</div>
 	</template>
 </div>
-	<footer>
-    <span class="fa fa-facebook"></span>
-    <span class="fa fa-twitter"></span>
-    <span class="fa fa-youtube"></span>
-    <span class="fa fa-instagram"></span>
- </footer>
+  <footer>
+    <span class="fa fa-facebook"><span></span></span>
+    <span class="fa fa-twitter"><span></span></span>
+    <span class="fa fa-youtube"><span></span></span>
+    <span class="fa fa-instagram"><span></span></span>
+  </footer>
+
 
  
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
